@@ -135,3 +135,27 @@ The introduction of a class with two distinct sets of responsibilities
 should be ringing alarm bells already – such classes are said to have weak cohesion: their responsibilities do not form a single clump.
 
 ---
+## Dynamic analysis
+- To confirm our class diagram is complete.
+- To verify functionality of the user interfaces that will appear in the final system.
+
+> According, to Jacobson: The most important part of dynamic analysis is use case realization.
+
+#### Use case Realization Process:
+
+1. Walk through the system use cases, simulating the messages sent between objects and recording the results on communication diagrams.
+2. Introduce operations on the objects that receive the messages.
+3. Add classes to represent boundaries (system interfaces) and controllers (placeholders for complex business processes or for the creation and retrieval of objects), as necessary.
+---
+> Need to fill these up later
+### 1. Drawing Communication Diagram
+
+### 2. Boundaries, Controllers and Entities
+
+### 3. Communication Diagram elements
+
+### 4. Adding Operations to classes
+
+### 5. Responsibilities
+
+### 6. State Modeling

@@ -63,4 +63,4 @@ There are four possible types of relationships:
 
 4. Composition : Strong Association- the composed objects can't be shared by other objects and die with its composer.
 
-![Alternate Text: github.png](resources\Class Relationships.drawio.png)
+![ClassRelationships](resources/ClassRelationships.png)

@@ -95,21 +95,82 @@ Steps are:
 
   ![UML deployment Diagram](resources/deploymentUML.png)
 
-  
+
 
 
 ---
 
 ## 5. Designing for Concurrency
 
+Most systems, especially networked systems, have many things happening at once; that is, they are concurrent systems.
+
+**Note**: At a low level, database transactions and thread monitors are used to protect data inside individual processes, for example. At a higher level, we need to use *system rules* and *business rules* to control concurrent activity.
+
+**Note**: we don’t inadvertently sell two tickets when there’s only one seat left. This is a process-level concurrency issue, because it can be controlled by the server process (the requests are serialized: the first to arrive gets the ticket, the second gets an error message).
+
+-  The look and feel of a well-designed concurrent system is no different to the single-user
+version.
+
+- Our business services are the same for concurrent and single-user cases.
+
+- To make a business object concurrent-safe, it’s only necessary to add messages and supporting objects; therefore, business messages (and associated attributes) can be designed
+separately.
 
 ---
+
 ## 6.  Designing for Security
----
-## 7. Partitioning Software
+Five aspects of Security are:
+1. **Privacy**
+
+2. **Authentication**
+
+3. **Irrefutability**
+
+4. **Integrity**
+
+5. **Safety** : We must be able to control access to resources (such as machines, processes, databases and files). Safety is also known as **authorization**.
+
+
+First four requirements can be satisfied using digital encryption.
+
+Operating System provides safety.
+
+- ### General Security Rules
+  -  Protect your servers from unauthorized access, whether accidental or malicious.
+
+  - Confine sensitive information to your internal network: sensitive information includes details of business deals with other companies; business strategy; personnel details; details of the credit reference agencies you use; information relating to national security; and
+  so on.
+
+  - Prevent the eavesdropping of exported information: ensure that information you pass outside your intranet can only be read by the intended recipient.
+
+  - Protect employee and customer passwords, which are not only the foundation of your entire security policy they’re often highly personal.
+
+  -  Prevent server code accessing unneeded resources.
+
+  -  Prevent client code accessing unneeded resources: we want to protect the client against unauthorized access to their resources and against accidental damage (because we want to offer a high quality of service and because we don’t want them to sue us if something goes wrong).
+
 ---
 
-> Merging two chapter into one. Need to split them later when skeleton is complete.
+## 7. Partitioning Software
+
+
+Breaking the business entities and business process into autonomous subsystems if necessary and into layers if necessary.
+
+
+- ### Systems and Subsystems
+A business should have a number of separate systems, each implemented by a different development team so that the temptation to reuse objects inappropriately is minimized. Then, where information needs to be passed between systems, it should pass in a well-defined, controlled manner via well-defined interfaces. In order to reduce complexity
+further, each system should be broken down further into separate subsystems. Although each system has its own independent data, we can still use a single DBMS for deployment, since a DBMS will happily manage multiple databases.
+
+- ### Layers
+Each
+layer is a cluster of collaborating objects dependent on the facilities offered by lower layers.
+Layers don’t have to contain objects. For example, the Unix system library provides access
+to low-level operating system facilities via a layer of C functions.
+
+> A serious software system, even a small one by today’s standards, touches on so many areas that it would be impossible to guarantee its correctness by dealing with all components and properties on a single level. Instead, a layered approach is necessary, each layer relying on lower ones.
+
+---
+
 
 ---
 
